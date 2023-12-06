@@ -94,13 +94,18 @@ namespace SC2KFix
 
             if (args.Length > 0)
             {
-                switch (args[1])
+                switch (args[0])
                 {
                     case "register":
-                        RegisterGame(args[2] ?? "Mayor Cool", args[3] ?? "Cool Company");
+                        RegisterGame(args[1] ?? "Mayor Cool", args[2] ?? "Cool Company");
                         break;
 
                     case "patch":
+                        isPatchOk = Patch();
+                        break;
+
+                    default:
+                        RegisterGame();
                         isPatchOk = Patch();
                         break;
                 }
